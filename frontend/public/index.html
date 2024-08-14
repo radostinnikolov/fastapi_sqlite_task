@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form and Table Example</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body id="body">
+<button onclick="changeBackgroundColor()">Change background color</button>
+<h2>Create new delivery order</h2>
+<form onsubmit="handleSubmit(event)">
+    <label for="sender-name">Sender name:</label><br>
+    <input type="text" id="sender-name" name="sender_name" required><br><br>
+
+    <label for="receiver-name">Receiver name:</label><br>
+    <input type="text" id="receiver-name" name="receiver_name" required><br><br>
+
+    <label for="sender-email">Sender email:</label><br>
+    <input type="email" id="sender-email" name="sender_email" required><br><br>
+
+    <label for="sender-phone">Sender phone number:<br>
+        <small>Format: +359xxxxxxxxx</small>
+      </label><br>  
+    <input type="tel" id="sender-phone" name="sender_phone" pattern="[+359][0-9]{12}" required /><br><br>
+
+    <label for="receiver-phone">Receiver phone number:<br>
+    <small>Format: +359xxxxxxxxx</small>
+    </label><br>
+    <input type="tel" id="receiver-phone" name="receiver_phone" pattern="[+359][0-9]{12}" required /><br><br>
+
+    <label for="item">Item:</label><br>
+    <input type="text" id="item" name="item" required><br><br>
+
+    <label for="quantity">Quantity:</label><br>
+    <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+    <label for="weight">Weight(kg):</label><br>
+    <input type="number" id="weight" name="weight" min="0" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<h2>All delivery orders</h2>
+<button onclick="handleUpdate()">Update orders</button>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sender name</th>
+            <th>Receiver name</th>
+            <th>Sender email</th>
+            <th>Sender phone number</th>
+            <th>Receiver phone number</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Weight(kg)</th>
+        </tr>
+    </thead>
+    <tbody id="rows">
+    </tbody>
+</table>
+<script src="apiCalls.js"></script>
+<script src="utils.js"></script>
+<script src="httpReqTemplate.js"></script>
+
+</body>
+</html>

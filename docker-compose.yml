@@ -1,0 +1,18 @@
+name: web-proj
+services:
+  frontend:
+    build: ./frontend
+    environment:
+      NODE_ENV: production
+    ports:
+      - 5000:5000
+  backend:
+    build: ./backend
+    command: sh -c "uvicorn app.main:app --port=8000 --host=0.0.0.0"
+    ports:
+      - 8000:8000
+volumes:
+  frontend:
+  backend:
+
+
