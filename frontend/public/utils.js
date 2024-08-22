@@ -28,3 +28,28 @@ function createDeleteButton(id){
     btn.addEventListener("click", () => handleDelete(id))
     return btn
 }
+function changeBackgroundColor(){
+    const colors = ['red', 'blue', 'green', 'yellow', 'white']
+    let random = Math.floor(Math.random() * colors.length)
+    document.getElementById("body").style.backgroundColor = colors[random]
+}
+
+function redirectToPortal(event){
+    let token = localStorage.getItem("token");
+    if (token === null){
+        window.location = "http://localhost:5000/portal"
+    }
+}
+
+function redirectToLogin(){
+    window.location = "http://localhost:5000/login"
+}
+
+function redirectToSignUp(){
+    window.location = "http://localhost:5000/sign-up"
+}
+
+function logout(){
+    localStorage.removeItem('token')
+    window.location = "http://localhost:5000/portal"
+}

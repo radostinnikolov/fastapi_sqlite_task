@@ -19,7 +19,8 @@
         }
     </style>
 </head>
-<body id="body">
+<body id="body" onload="redirectToPortal(event)">
+<button onclick="logout()">Logout</button>
 <button onclick="changeBackgroundColor()">Change background color</button>
 <h2>Create new delivery order</h2>
 <form onsubmit="handleSubmit(event)">
@@ -73,9 +74,9 @@
     <tbody id="rows">
     </tbody>
 </table>
-<script src="apiCalls.js"></script>
-<script src="utils.js"></script>
-<script src="httpReqTemplate.js"></script>
+<script src="../main/apiCalls.js"></script>
+<script src="../utils.js"></script>
+<script src="../httpReqTemplate.js"></script>
 
 </body>
 </html>

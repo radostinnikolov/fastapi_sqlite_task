@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            display: block;
+            width: 200px;
+            padding: 15px;
+            margin: 10px auto;
+            font-size: 16px;
+            color: black;
+            border-style: solid;
+            border-radius: 5px;
+            border-color: black;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        p {
+            font-size: 16px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="button-container">
+            <p>If you don't have an account, press the Sign Up button to create one.</p>
+            <button onclick="redirectToSignUp()">Sign Up</button>
+        </div>
+        <div class="button-container">
+            <p>If you already have an account, press the Login button to access it.</p>
+            <button onclick="redirectToLogin()">Login</button>
+        </div>
+    </div>
+
+    <script src="../utils.js"></script>
+</body>
+</html>

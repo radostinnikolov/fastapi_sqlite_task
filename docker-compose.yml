@@ -1,18 +1,42 @@
 name: web-proj
 services:
   frontend:
-    build: ./frontend
+    build: radostin369/frontend:latest
     environment:
       NODE_ENV: production
     ports:
       - 5000:5000
-  backend:
-    build: ./backend
+    networks:
+      static-network:
+        ipv4_address: 172.19.0.2
+  backend-main:
+    build: radostin369/backend-main:latest
     command: sh -c "uvicorn app.main:app --port=8000 --host=0.0.0.0"
     ports:
       - 8000:8000
+    volumes:
+      - db_service:/app/db
+    networks:
+      static-network:
+        ipv4_address: 172.19.0.3
+    env_file:
+      - ./backend/config.env
+  backend-email:
+    build: radostin369/backend-email:latest
+    command: sh -c "uvicorn app.main:app --port=8001 --host=0.0.0.0"
+    ports:
+      - 8001:8001
+    volumes:
+      - db_service:/app/db
+    networks:
+      static-network:
+        ipv4_address: 172.19.0.4
 volumes:
-  frontend:
-  backend:
+  db_service:
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
 
 

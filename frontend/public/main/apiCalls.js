@@ -20,8 +20,4 @@ async function handleDelete(id) {
     await httpRequest(`http://localhost:8000/orders/${id}`, "DELETE")
     await handleUpdate();
 }
-function changeBackgroundColor(){
-    const colors = ['red', 'blue', 'green', 'yellow', 'white']
-    let random = Math.floor(Math.random() * colors.length)
-    document.getElementById("body").style.backgroundColor = colors[random]
-}
+
